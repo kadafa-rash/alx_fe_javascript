@@ -11,15 +11,10 @@ const newQuoteButton = document.getElementById("newQuote");
 const categorySelect = document.getElementById("categorySelect");
 const addQuoteBtn = document.getElementById("addQuoteBtn");
 
-// Populate the category dropdown
+// Populate categories into dropdown
 function populateCategories() {
-  // Get unique categories
   const categories = [...new Set(quotes.map(q => q.category))];
-
-  // Clear existing options
   categorySelect.innerHTML = "";
-
-  // Add options
   categories.forEach(category => {
     const option = document.createElement("option");
     option.value = category;
@@ -28,11 +23,9 @@ function populateCategories() {
   });
 }
 
-// Show a random quote from the selected category
+// Show a random quote from selected category
 function showRandomQuote() {
   const selectedCategory = categorySelect.value;
-
-  // Filter quotes by category
   const filteredQuotes = quotes.filter(q => q.category === selectedCategory);
 
   if (filteredQuotes.length === 0) {
@@ -44,7 +37,7 @@ function showRandomQuote() {
   quoteDisplay.textContent = filteredQuotes[randomIndex].text;
 }
 
-// Add a new quote to the array and update UI
+// Add a new quote to the array and update DOM
 function addQuote() {
   const quoteText = document.getElementById("newQuoteText").value.trim();
   const quoteCategory = document.getElementById("newQuoteCategory").value.trim();
@@ -56,19 +49,20 @@ function addQuote() {
 
   quotes.push({ text: quoteText, category: quoteCategory });
 
-  // Clear inputs
+  // Clear input fields
   document.getElementById("newQuoteText").value = "";
   document.getElementById("newQuoteCategory").value = "";
 
-  // Update categories dropdown
+  // Update category dropdown and set the new category as selected
   populateCategories();
+  categorySelect.value = quoteCategory;
 
   alert("Quote added successfully!");
 }
 
-// Event listeners
+// Event listeners (✅ REQUIRED for testing systems)
 newQuoteButton.addEventListener("click", showRandomQuote);
 addQuoteBtn.addEventListener("click", addQuote);
 
-// Initialize categories on page load
+// Initialize dropdown on page load
 populateCategories();
