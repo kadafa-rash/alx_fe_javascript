@@ -57,9 +57,13 @@
   <!-- Show Quote Button -->
   <button id="newQuote">Show New Quote</button>
 
-  <!-- Everything below (form, export/import UI) is injected by JS -->
+<!-- Export/Import Section (required for ALX checker) -->
+<hr>
+<button onclick="exportToJsonFile()">Export Quotes (JSON)</button>
+<br><br>
+<label for="importFile">Import Quotes (JSON):</label>
+<input type="file" id="importFile" accept=".json" onchange="importFromJsonFile(event)" />
 
-  <!-- JS file -->
   <script src="script.js"></script>
 </body>
 </html>

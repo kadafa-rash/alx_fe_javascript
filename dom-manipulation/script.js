@@ -1,9 +1,7 @@
-let quotes = [];
-
-// DOM Elements
 const quoteDisplay = document.getElementById('quoteDisplay');
 const newQuoteBtn = document.getElementById('newQuote');
 const categoryFilter = document.getElementById('categorySelect');
+let quotes = [];
 
 // Load quotes from localStorage on initialization
 function loadQuotes() {
@@ -165,27 +163,6 @@ function importFromJsonFile(event) {
   reader.readAsText(file);
 }
 
-// Create import/export UI
-function createImportExportUI() {
-  const exportBtn = document.createElement('button');
-  exportBtn.textContent = "Export Quotes (JSON)";
-  exportBtn.onclick = exportToJsonFile;
-
-  const importLabel = document.createElement('label');
-  importLabel.textContent = "Import Quotes (JSON): ";
-
-  const importInput = document.createElement('input');
-  importInput.type = "file";
-  importInput.accept = ".json";
-  importInput.addEventListener('change', importFromJsonFile);
-
-  document.body.appendChild(document.createElement('hr'));
-  document.body.appendChild(exportBtn);
-  document.body.appendChild(document.createElement('br'));
-  document.body.appendChild(importLabel);
-  document.body.appendChild(importInput);
-}
-
 // === Event Listeners ===
 newQuoteBtn.addEventListener('click', showRandomQuote);
 categoryFilter.addEventListener('change', showRandomQuote);
@@ -195,4 +172,3 @@ loadQuotes();
 updateCategoryFilter();
 loadLastViewedQuote();
 createAddQuoteForm();
-createImportExportUI();
