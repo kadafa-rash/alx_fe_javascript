@@ -41,26 +41,19 @@
 <body>
   <h1>Dynamic Quote Generator</h1>
 
-  <!-- Filter Dropdown -->
+  <!-- Category Dropdown -->
   <div>
-    <label for="categoryFilter">Filter by category:</label>
-    <select id="categoryFilter"></select>
+    <label for="categorySelect">Choose a category:</label>
+    <select id="categorySelect"></select>
   </div>
 
   <!-- Quote Display -->
-  <div id="quoteDisplay">Loading quote...</div>
+  <div id="quoteDisplay" style="margin: 20px 0; font-weight: bold;"></div>
 
-  <!-- Button to show a new quote -->
+  <!-- Show Quote Button -->
   <button id="newQuote">Show New Quote</button>
 
-  <!-- Form to add a new quote -->
-  <h2>Add a New Quote</h2>
-  <div>
-    <input id="newQuoteText" type="text" placeholder="Enter a new quote" />
-    <input id="newQuoteCategory" type="text" placeholder="Enter quote category" />
-    <button id="addQuoteBtn">Add Quote</button>
-  </div>
-
+  <!-- JS file -->
   <script src="script.js"></script>
 </body>
 </html>
