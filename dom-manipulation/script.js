@@ -72,8 +72,8 @@ function restoreLastSelectedCategory() {
   }
 }
 
-// === Update Category Dropdown ===
-function updateCategoryFilter() {
+// === Populate Categories Dropdown ===
+function populateCategories() {
   const categories = [...new Set(quotes.map(q => q.category))];
   categoryFilter.innerHTML = '';
 
@@ -105,7 +105,7 @@ function addQuote() {
 
   quotes.push({ text: newText, category: newCategory });
   saveQuotes();
-  updateCategoryFilter();
+  populateCategories();
   showRandomQuote();
 
   textInput.value = "";
@@ -179,7 +179,7 @@ function importFromJsonFile(event) {
       });
 
       saveQuotes();
-      updateCategoryFilter();
+      populateCategories();
       showRandomQuote();
       alert('Quotes imported successfully!');
     } catch (err) {
@@ -195,7 +195,7 @@ categoryFilter.addEventListener('change', showRandomQuote);
 
 // === Initialization ===
 loadQuotes();
-updateCategoryFilter();
+populateCategories();
 restoreLastSelectedCategory();
 loadLastViewedQuote();
 createAddQuoteForm();
