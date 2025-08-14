@@ -21,6 +21,12 @@
       border-left: 5px solid #555;
     }
 
+    #quoteCount {
+      margin-bottom: 15px;
+      font-size: 0.95em;
+      color: #444;
+    }
+
     input, select, button {
       margin-top: 10px;
       padding: 8px;
@@ -52,18 +58,20 @@
   </div>
 
   <!-- Quote Display -->
+  <div id="quoteCount"></div>
   <div id="quoteDisplay">Loading quote...</div>
 
   <!-- Show Quote Button -->
   <button id="newQuote">Show New Quote</button>
 
-<!-- Export/Import Section (required for ALX checker) -->
-<hr>
-<button onclick="exportToJsonFile()">Export Quotes (JSON)</button>
-<br><br>
-<label for="importFile">Import Quotes (JSON):</label>
-<input type="file" id="importFile" accept=".json" onchange="importFromJsonFile(event)" />
+  <!-- Export/Import Section (required for ALX checker) -->
+  <hr>
+  <button onclick="exportToJsonFile()">Export Quotes (JSON)</button>
+  <br><br>
+  <label for="importFile">Import Quotes (JSON):</label>
+  <input type="file" id="importFile" accept=".json" onchange="importFromJsonFile(event)" />
 
+  <!-- Script -->
   <script src="script.js"></script>
 </body>
 </html>
