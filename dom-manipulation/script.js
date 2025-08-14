@@ -197,7 +197,9 @@ async function syncWithServer() {
     showNotification("Synced with server.");
   }
 }
-
+function syncQuotes() {
+  syncWithServer();
+}
 // === Show notification ===
 function showNotification(message) {
   const note = document.createElement('div');
